@@ -20,7 +20,7 @@ public class BlinkingButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Color BtnColor = BtnImg.color;
+        BtnColor = BtnImg.color;
         if (isFading)
         {
             BtnColor.a -= speed * Time.deltaTime;

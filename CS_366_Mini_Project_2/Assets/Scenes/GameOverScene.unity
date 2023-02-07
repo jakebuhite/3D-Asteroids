@@ -1118,9 +1118,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SplashSM, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 1336426688}
+        m_TargetAssemblyTypeName: GameOverSM, Assembly-CSharp
+        m_MethodName: ReturnToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

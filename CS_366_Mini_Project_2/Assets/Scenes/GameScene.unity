@@ -10342,4 +10342,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forwardSpeed: 15
   RollSpeed: 90
-  speedOfCamera: 20
+  speedOfCamera: 40

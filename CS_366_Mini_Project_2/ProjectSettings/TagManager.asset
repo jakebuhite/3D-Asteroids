@@ -7,6 +7,9 @@ TagManager:
   - SkyboxCamera
   - Enemy
   - SceneManager
+  - LargeAsteroid
+  - MediumAsteroid
+  - SmallAsteroid
   layers:
   - Default
   - TransparentFX

@@ -31,7 +31,7 @@ public class Shooting : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100f))
         {
             // Debug
-            // Debug.Log(hit.transform.name);
+            Debug.Log(hit.transform.tag);
             // Debug.DrawRay(this.transform.position, hit.transform.position, Color.red, 3);
         }
     }

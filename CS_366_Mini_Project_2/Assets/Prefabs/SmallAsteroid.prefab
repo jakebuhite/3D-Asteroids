@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 8236048782946855270}
   - component: {fileID: 8236048782952350564}
   - component: {fileID: 3768864608371118688}
+  - component: {fileID: 3597489391468514620}
   m_Layer: 0
   m_Name: SmallAsteroid
   m_TagString: SmallAsteroid
@@ -388,3 +389,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: {x: 0, y: 0, z: 0}
+--- !u!65 &3597489391468514620
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236048782941668342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.65, y: 3.41, z: 2.82}
+  m_Center: {x: 0, y: 0, z: 0}

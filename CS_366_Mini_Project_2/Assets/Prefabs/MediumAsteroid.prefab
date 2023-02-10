@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 9139486467473779213}
   - component: {fileID: 9139486467481797815}
   - component: {fileID: -1137364295222752926}
+  - component: {fileID: 8915025429232252288}
   m_Layer: 0
   m_Name: MediumAsteroid
   m_TagString: MediumAsteroid
@@ -160,6 +161,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: {x: 0, y: 0, z: 0}
+--- !u!65 &8915025429232252288
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9139486467470551705}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.74, y: 4.61, z: 2.36}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9139486467470556967
 GameObject:
   m_ObjectHideFlags: 0

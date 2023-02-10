@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 2647338763144534863}
   - component: {fileID: 2647338763149598717}
   - component: {fileID: -4726722162586315021}
+  - component: {fileID: -1210178222477567267}
   m_Layer: 0
   m_Name: LargeAsteroid
   m_TagString: LargeAsteroid
@@ -305,6 +306,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: {x: 0, y: 0, z: 0}
+--- !u!65 &-1210178222477567267
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2647338763139373305}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.42, y: 1.79, z: 1.76}
+  m_Center: {x: 0, y: 0, z: 0.07}
 --- !u!1 &2647338763139397957
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,9 @@ using UnityEngine;
 public class Asteroid_Movement : MonoBehaviour
 {
     public Vector3 dir;
-    private float speed = 2;
+    private float speed = 0;
+    public SceneManager Manager;
+
     // Start is called before the first frame update
     void Start()
     {

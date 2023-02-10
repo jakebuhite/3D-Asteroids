@@ -8,6 +8,8 @@ public class Shooting : MonoBehaviour
 
     private bool inCooldown;
 
+    public SceneManager Manager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,7 @@ public class Shooting : MonoBehaviour
         {
             // Debug
             Debug.Log(hit.transform.tag);
+            Manager.SplitAsteroid(hit.transform);
             // Debug.DrawRay(this.transform.position, hit.transform.position, Color.red, 3);
         }
     }

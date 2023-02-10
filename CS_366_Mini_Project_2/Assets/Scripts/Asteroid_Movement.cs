@@ -8,6 +8,8 @@ public class Asteroid_Movement : MonoBehaviour
     private float speed = 0;
     public SceneManager Manager;
 
+    public Vector3 AsteroidPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class Asteroid_Movement : MonoBehaviour
     void Update()
     {
         move();
+        AsteroidPosition = this.transform.position;
     }
 
     void move()

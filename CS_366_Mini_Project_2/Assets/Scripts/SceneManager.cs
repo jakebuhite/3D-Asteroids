@@ -58,9 +58,9 @@ public class SceneManager : MonoBehaviour
             MA1 = Instantiate(MediumAsteroid);
             MA2 = Instantiate(MediumAsteroid);
 
-            MediumAsteroid mAsteroid = MA1.GetComponent<MediumAsteroid>();
+            Asteroid_Movement mAsteroid = MA1.GetComponent<Asteroid_Movement>();
             mAsteroid.Manager = this;
-            MediumAsteroid mAsteroid2 = MA2.GetComponent<MediumAsteroid>();
+            Asteroid_Movement mAsteroid2 = MA2.GetComponent<Asteroid_Movement>();
             mAsteroid2.Manager = this;
 
             mAsteroid.AsteroidPosition = tran.transform.position;
@@ -74,6 +74,29 @@ public class SceneManager : MonoBehaviour
             euler2.z = Random.Range(0, 360);
             MA2.transform.eulerAngles = euler2;
             MA2.transform.position = mAsteroid2.AsteroidPosition;
+        }
+
+        if (tran.tag == "MediumAsteroid")
+        {
+            SA1 = Instantiate(SmallAsteroid);
+            SA1 = Instantiate(SmallAsteroid);
+
+            Asteroid_Movement sAsteroid = SA1.GetComponent<Asteroid_Movement>();
+            sAsteroid.Manager = this;
+            Asteroid_Movement sAsteroid2 = SA1.GetComponent<Asteroid_Movement>();
+            sAsteroid2.Manager = this;
+
+            sAsteroid.AsteroidPosition = tran.transform.position;
+
+            SA1.transform.position = sAsteroid.AsteroidPosition;
+            var euler1 = transform.eulerAngles;
+            euler1.z = Random.Range(0, 360);
+            SA1.transform.eulerAngles = euler1;
+
+            var euler2 = transform.eulerAngles;
+            euler2.z = Random.Range(0, 360);
+            SA2.transform.eulerAngles = euler2;
+            SA2.transform.position = sAsteroid2.AsteroidPosition;
         }
     }
 }

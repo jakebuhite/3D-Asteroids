@@ -10327,3 +10327,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 0.25
+  Manager: {fileID: 1672368673}

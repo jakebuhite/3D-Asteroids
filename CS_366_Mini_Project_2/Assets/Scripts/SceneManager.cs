@@ -14,6 +14,9 @@ public class SceneManager : MonoBehaviour
     public GameObject MediumAsteroid;
     public GameObject SmallAsteroid;
 
+    public ParticleSystem ExplosionFX;
+    public ParticleSystem LittleExplosionFX;
+
     private GameObject MA1;
     private GameObject MA2;
     private GameObject SA1;
@@ -55,6 +58,7 @@ public class SceneManager : MonoBehaviour
     {
         if (tran.tag == "LargeAsteroid")
         {
+            LargeExplosion(tran);
             MA1 = Instantiate(MediumAsteroid);
             MA2 = Instantiate(MediumAsteroid);
 
@@ -78,6 +82,7 @@ public class SceneManager : MonoBehaviour
 
         if (tran.tag == "MediumAsteroid")
         {
+            LargeExplosion(tran);
             SA1 = Instantiate(SmallAsteroid);
             SA2 = Instantiate(SmallAsteroid);
 
@@ -98,5 +103,24 @@ public class SceneManager : MonoBehaviour
             SA2.transform.eulerAngles = euler2;
             SA2.transform.position = sAsteroid2.AsteroidPosition;
         }
+
+        if (tran.tag == "SmallAsteroid")
+        {
+            SmallExplosion(tran);
+        }
+    }
+
+    private void LargeExplosion(Transform tran)
+    {
+        ParticleSystem Boom;
+        Boom = Instantiate(ExplosionFX);
+        Boom.transform.position = tran.position;
+    }
+
+    private void SmallExplosion(Transform tran)
+    {
+        ParticleSystem Boom;
+        Boom = Instantiate(LittleExplosionFX);
+        Boom.transform.position = tran.position;
     }
 }

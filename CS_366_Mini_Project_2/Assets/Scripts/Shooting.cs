@@ -35,6 +35,7 @@ public class Shooting : MonoBehaviour
             // Debug
             Debug.Log(hit.transform.tag);
             Manager.SplitAsteroid(hit.transform);
+            Destroy(hit.transform.gameObject);
             // Debug.DrawRay(this.transform.position, hit.transform.position, Color.red, 3);
         }
     }

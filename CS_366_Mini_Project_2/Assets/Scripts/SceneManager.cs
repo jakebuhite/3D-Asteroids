@@ -79,11 +79,11 @@ public class SceneManager : MonoBehaviour
         if (tran.tag == "MediumAsteroid")
         {
             SA1 = Instantiate(SmallAsteroid);
-            SA1 = Instantiate(SmallAsteroid);
+            SA2 = Instantiate(SmallAsteroid);
 
             Asteroid_Movement sAsteroid = SA1.GetComponent<Asteroid_Movement>();
             sAsteroid.Manager = this;
-            Asteroid_Movement sAsteroid2 = SA1.GetComponent<Asteroid_Movement>();
+            Asteroid_Movement sAsteroid2 = SA2.GetComponent<Asteroid_Movement>();
             sAsteroid2.Manager = this;
 
             sAsteroid.AsteroidPosition = tran.transform.position;

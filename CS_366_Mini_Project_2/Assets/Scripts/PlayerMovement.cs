@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         aRoll = Mathf.Lerp(aRoll, Input.GetAxis("Horizontal"), rAcceleration * Time.deltaTime);
 
-        transform.Rotate(-mouseDistance.y * speedOfCamera * Time.deltaTime, mouseDistance.x * speedOfCamera * Time.deltaTime, aRoll * RollSpeed * Time.deltaTime);
+        transform.Rotate(mouseDistance.y * speedOfCamera * Time.deltaTime, mouseDistance.x * speedOfCamera * Time.deltaTime, aRoll * RollSpeed * Time.deltaTime);
 
         aForward = Mathf.Lerp(aForward, Input.GetAxis("Vertical") * forwardSpeed, fAcceleration * Time.deltaTime);
 

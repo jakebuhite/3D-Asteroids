@@ -17,10 +17,15 @@ public class SceneManager : MonoBehaviour
     public ParticleSystem ExplosionFX;
     public ParticleSystem LittleExplosionFX;
 
+    public GameObject Player;
+
     private GameObject MA1;
     private GameObject MA2;
     private GameObject SA1;
     private GameObject SA2;
+
+    public int numOfAsteroids = 2;
+    public bool canSpawn = true;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +44,11 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (numOfAsteroids <= 1)
+        {
+            StartCoroutine(waitEmpty());
+            StartCoroutine(SpawnAsteroids());
+        }
     }
 
     public void UpdateScore(int pointValue)
@@ -59,6 +68,7 @@ public class SceneManager : MonoBehaviour
         if (tran.tag == "LargeAsteroid")
         {
             LargeExplosion(tran);
+            numOfAsteroids--;
             MA1 = Instantiate(MediumAsteroid);
             MA2 = Instantiate(MediumAsteroid);
 
@@ -122,5 +132,40 @@ public class SceneManager : MonoBehaviour
         ParticleSystem Boom;
         Boom = Instantiate(LittleExplosionFX);
         Boom.transform.position = tran.position;
+    }
+
+    IEnumerator SpawnAsteroids()
+    {
+        numOfAsteroids++;
+        yield return new WaitForSeconds(Random.Range(1, 4));
+
+        Vector2 distance;
+
+        do
+        {
+            int x = Random.Range(-4, 4);
+            int z = Random.Range(-2, 2);
+
+            distance = new Vector2(x - Player.transform.position.x, z - Player.transform.position.z);
+        }
+        while (distance.magnitude < 4);
+        {
+            float y = Random.Range(0, 2);
+            y = y + 0.49f;
+            GameObject instance = Instantiate(LargeAsteroid);
+            instance.transform.position = new Vector3(distance.x, y, distance.y);
+            Asteroid_Movement LA = instance.GetComponent<Asteroid_Movement>();
+            LA.Manager = this;
+        }
+    }
+    IEnumerator WaitSpawn()
+    {
+        yield return new WaitForSeconds(Random.Range(1, 5));
+        StartCoroutine(SpawnAsteroids());
+    }
+
+    IEnumerator waitEmpty()
+    {
+        yield return new WaitForSeconds(Random.Range(1, 3));
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Asteroid_Movement : MonoBehaviour
 {
     public Vector3 dir;
-    private float speed = 0;
+    public float speed = 1;
     public SceneManager Manager;
 
     public Vector3 AsteroidPosition;
@@ -13,10 +13,24 @@ public class Asteroid_Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float x = Random.Range(-2, 2);
-        float y = Random.Range(-2, 2);
-        float z = Random.Range(-2, 2);
+        float x;
+        float y;
+        float z;
+        do
+        {
+            x = Random.Range(-2, 2);
+            y = Random.Range(-2, 2);
+            z = Random.Range(-2, 2);
+        }
+        while (x == 0 && y == 0 && z == 0);
         dir = new Vector3(x,y,z);
+
+        if (this.tag == "LargeAsteroid")
+            this.speed = 1;
+        else if (this.tag == "MediumAsteroid")
+            this.speed = 2;
+        else if (this.tag == "SmallAsteroid")
+            this.speed = 3;
 
     }
 

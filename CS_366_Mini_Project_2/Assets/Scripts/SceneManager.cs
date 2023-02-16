@@ -74,10 +74,12 @@ public class SceneManager : MonoBehaviour
 
             Asteroid_Movement mAsteroid = MA1.GetComponent<Asteroid_Movement>();
             mAsteroid.Manager = this;
+            
             Asteroid_Movement mAsteroid2 = MA2.GetComponent<Asteroid_Movement>();
             mAsteroid2.Manager = this;
 
             mAsteroid.AsteroidPosition = tran.transform.position;
+
 
             MA1.transform.position = mAsteroid.AsteroidPosition;
             var euler1 = transform.eulerAngles;
@@ -88,6 +90,7 @@ public class SceneManager : MonoBehaviour
             euler2.z = Random.Range(0, 360);
             MA2.transform.eulerAngles = euler2;
             MA2.transform.position = mAsteroid2.AsteroidPosition;
+
         }
 
         if (tran.tag == "MediumAsteroid")

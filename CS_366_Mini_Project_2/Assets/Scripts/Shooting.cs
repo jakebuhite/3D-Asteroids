@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour
     private bool inCooldown;
 
     public SceneManager Manager;
+    public GameObject ShootPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit = new RaycastHit();
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = new(ShootPoint.transform.position, ShootPoint.transform.forward);
         if (Physics.Raycast(ray, out hit, 100f))
         {
             // Debug

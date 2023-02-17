@@ -54,6 +54,7 @@ public class Shooting : MonoBehaviour
             if (hit.transform.gameObject.tag == "LargeAsteroid" || hit.transform.gameObject.tag == "MediumAsteroid" || hit.transform.gameObject.tag == "SmallAsteroid")
             {
                 Manager.SplitAsteroid(hit.transform);
+                EndPoint = hit.point;
                 Destroy(hit.transform.gameObject);
             }
         }

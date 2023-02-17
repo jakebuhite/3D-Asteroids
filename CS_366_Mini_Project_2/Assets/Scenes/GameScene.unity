@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boundary (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
+      propertyPath: m_TagString
+      value: BoundaryX
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
 --- !u!1001 &89173872
@@ -5359,7 +5363,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.02, z: 0}
+  m_Size: {x: 0.02, y: 0.02, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -5518,6 +5522,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boundary (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
+      propertyPath: m_TagString
+      value: BoundaryY
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
 --- !u!1001 &831643991
@@ -5582,6 +5590,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
       propertyPath: m_Name
       value: Boundary (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
+      propertyPath: m_TagString
+      value: BoundaryX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
@@ -5732,6 +5744,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boundary
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
+      propertyPath: m_TagString
+      value: BoundaryZ
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
 --- !u!1 &967540190 stripped
@@ -5750,7 +5766,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.02, z: 0}
+  m_Size: {x: 0.02, y: 0.02, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1029826531
 PrefabInstance:
@@ -10761,7 +10777,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.02, z: 0}
+  m_Size: {x: 0.02, y: 0.02, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1528128319 stripped
 Transform:
@@ -10881,7 +10897,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.02, z: 0}
+  m_Size: {x: 0.02, y: 0.02, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1626609302
 GameObject:
@@ -11081,6 +11097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boundary (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
+      propertyPath: m_TagString
+      value: BoundaryZ
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
 --- !u!1 &1661007426 stripped
@@ -11099,7 +11119,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.02, z: 0}
+  m_Size: {x: 0.02, y: 0.02, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1672368671
 GameObject:
@@ -11146,6 +11166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameScore: 0
+  UFO: {fileID: 7130517345598088701, guid: 45ecb8a86839f3a429afcdb7352b2cba, type: 3}
   LargeAsteroid: {fileID: 2647338763139373305, guid: 04c5c1293acfe7d44bc1c9e696f46ef2, type: 3}
   MediumAsteroid: {fileID: 9139486467470551705, guid: 586457413395678408c79a02f0b252dd, type: 3}
   SmallAsteroid: {fileID: 8236048782941668342, guid: 421552cd926906c4f994e97252dc1666, type: 3}
@@ -11216,6 +11237,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
       propertyPath: m_Name
       value: Boundary (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
+      propertyPath: m_TagString
+      value: BoundaryY
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aefa1871b05d5cf40981db5c12fed249, type: 3}
@@ -11562,7 +11587,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.02, z: 0}
+  m_Size: {x: 0.02, y: 0.02, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2134574414
 GameObject:

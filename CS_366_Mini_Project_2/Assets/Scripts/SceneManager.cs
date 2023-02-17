@@ -10,6 +10,8 @@ public class SceneManager : MonoBehaviour
     private const string HighScoreKey = "high_score";
     private const string RecentScoreKey = "recent_score";
 
+    public GameObject UFO;
+
     public GameObject LargeAsteroid;
     public GameObject MediumAsteroid;
     public GameObject SmallAsteroid;
@@ -41,6 +43,7 @@ public class SceneManager : MonoBehaviour
         PlayerPrefs.SetInt(RecentScoreKey, GameScore);
 
         Cursor.lockState = CursorLockMode.Confined;
+        SpawnUFO();
     }
 
     // Update is called once per frame
@@ -148,6 +151,27 @@ public class SceneManager : MonoBehaviour
         Boom.transform.position = tran.position;
     }
 
+    private void SpawnUFO()
+    {
+        Vector2 distance;
+
+        do
+        {
+            int x = Random.Range(-100, 100);
+            int z = Random.Range(-100, 100);
+
+            distance = new Vector2(x - Player.transform.position.x, z - Player.transform.position.z);
+        }
+        while (distance.magnitude < 4);
+        {
+            float y = Random.Range(-25, 50);
+            y = y + 0.49f;
+            GameObject instance = Instantiate(UFO);
+            instance.transform.position = new Vector3(distance.x, y, distance.y);
+            EnemyMovement enemyMove = instance.GetComponent<EnemyMovement>();
+            enemyMove.dir = new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), Random.Range(-3, 3));
+        }
+    }
     IEnumerator SpawnAsteroids()
     {
         numOfAsteroids++;

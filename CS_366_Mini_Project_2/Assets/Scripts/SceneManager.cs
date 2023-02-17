@@ -50,6 +50,14 @@ public class SceneManager : MonoBehaviour
         {
             StartCoroutine(waitEmpty());
             StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
             canSpawn = false;
         }
         Cursor.visible = false;
@@ -149,14 +157,14 @@ public class SceneManager : MonoBehaviour
 
         do
         {
-            int x = Random.Range(-4, 4);
-            int z = Random.Range(-2, 2);
+            int x = Random.Range(-75, 75);
+            int z = Random.Range(-75, 75);
 
             distance = new Vector2(x - Player.transform.position.x, z - Player.transform.position.z);
         }
         while (distance.magnitude < 4);
         {
-            float y = Random.Range(0, 2);
+            float y = Random.Range(-25, 50);
             y = y + 0.49f;
             GameObject instance = Instantiate(LargeAsteroid);
             instance.transform.position = new Vector3(distance.x, y, distance.y);

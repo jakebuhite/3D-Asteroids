@@ -25,7 +25,7 @@ public class SceneManager : MonoBehaviour
     private GameObject SA2;
 
     public int numOfAsteroids = 2;
-    public bool canSpawn = true;
+    public bool canSpawn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,16 +39,19 @@ public class SceneManager : MonoBehaviour
             PlayerPrefs.SetInt(HighScoreKey, GameScore);
         }
         PlayerPrefs.SetInt(RecentScoreKey, GameScore);
+
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (numOfAsteroids <= 1)
+        if (canSpawn == true)
         {
             StartCoroutine(waitEmpty());
             StartCoroutine(SpawnAsteroids());
         }
+        Cursor.visible = false;
     }
 
     public void UpdateScore(int pointValue)
@@ -74,7 +77,7 @@ public class SceneManager : MonoBehaviour
 
             Asteroid_Movement mAsteroid = MA1.GetComponent<Asteroid_Movement>();
             mAsteroid.Manager = this;
-            
+                
             Asteroid_Movement mAsteroid2 = MA2.GetComponent<Asteroid_Movement>();
             mAsteroid2.Manager = this;
 
@@ -90,8 +93,7 @@ public class SceneManager : MonoBehaviour
             euler2.z = Random.Range(0, 360);
             MA2.transform.eulerAngles = euler2;
             MA2.transform.position = mAsteroid2.AsteroidPosition;
-
-        }
+        } 
 
         if (tran.tag == "MediumAsteroid")
         {
@@ -170,5 +172,10 @@ public class SceneManager : MonoBehaviour
     IEnumerator waitEmpty()
     {
         yield return new WaitForSeconds(Random.Range(1, 3));
+    }
+
+    IEnumerator waitStart()
+    {
+        yield return new WaitForSeconds(2);
     }
 }

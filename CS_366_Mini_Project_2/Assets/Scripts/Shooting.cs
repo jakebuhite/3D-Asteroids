@@ -51,8 +51,11 @@ public class Shooting : MonoBehaviour
         Vector3 EndPoint = ray.GetPoint(100.0f);
         if (Physics.Raycast(ray, out hit, 100f))
         {
-            Manager.SplitAsteroid(hit.transform);
-            Destroy(hit.transform.gameObject);
+            if (hit.transform.gameObject.tag == "LargeAsteroid" || hit.transform.gameObject.tag == "MediumAsteroid" || hit.transform.gameObject.tag == "SmallAsteroid")
+            {
+                Manager.SplitAsteroid(hit.transform);
+                Destroy(hit.transform.gameObject);
+            }
         }
         LinePositions[0] = ShootPoint.transform.position;
         LinePositions[1] = EndPoint;

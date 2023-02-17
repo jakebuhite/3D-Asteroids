@@ -50,6 +50,7 @@ public class SceneManager : MonoBehaviour
         {
             StartCoroutine(waitEmpty());
             StartCoroutine(SpawnAsteroids());
+            canSpawn = false;
         }
         Cursor.visible = false;
     }
@@ -162,6 +163,7 @@ public class SceneManager : MonoBehaviour
             Asteroid_Movement LA = instance.GetComponent<Asteroid_Movement>();
             LA.Manager = this;
         }
+        StartCoroutine(WaitSpawn());
     }
     IEnumerator WaitSpawn()
     {

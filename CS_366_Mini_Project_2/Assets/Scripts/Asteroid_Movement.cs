@@ -50,4 +50,12 @@ public class Asteroid_Movement : MonoBehaviour
         // Vector3 newPosition = new Vector3(speed * direction.x * Time.deltaTime, speed * direction.y * Time.deltaTime, 0); // could also use constructor and set each
         this.transform.position += newPosition;
     }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.CompareTag("Player"))
+        {
+            Manager.RemoveLife();
+        }
+    }
 }

@@ -338,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialDelay: 2.5
   DelayPerChar: 0.1
+  textType: 2
 --- !u!114 &1210141195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,7 +359,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Highscore: 10000'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e19f469cdb4a6a644ba50d4eecb0009b, type: 2}
   m_sharedMaterial: {fileID: 5181738837333364858, guid: e19f469cdb4a6a644ba50d4eecb0009b, type: 2}
@@ -675,7 +676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 1000'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e19f469cdb4a6a644ba50d4eecb0009b, type: 2}
   m_sharedMaterial: {fileID: 5181738837333364858, guid: e19f469cdb4a6a644ba50d4eecb0009b, type: 2}
@@ -766,6 +767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialDelay: 1.2
   DelayPerChar: 0.1
+  textType: 1
 --- !u!1 &1631732061
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,7 +827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game over
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e19f469cdb4a6a644ba50d4eecb0009b, type: 2}
   m_sharedMaterial: {fileID: 5181738837333364858, guid: e19f469cdb4a6a644ba50d4eecb0009b, type: 2}
@@ -916,6 +918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialDelay: 0.1
   DelayPerChar: 0.1
+  textType: 0
 --- !u!1 &1673011353
 GameObject:
   m_ObjectHideFlags: 0

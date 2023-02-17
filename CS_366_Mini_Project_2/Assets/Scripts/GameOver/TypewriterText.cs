@@ -9,18 +9,31 @@ public class TypewriterText : MonoBehaviour
     public float InitialDelay = 0.1f;
     public float DelayPerChar = 0.1f;
 
-    private TMP_Text Txt;
+    public enum TextType { title, score, highscore };
+    public TextType textType;
+
     private string TxtTemp; // temporarily stores text
+    private TMP_Text Txt;
 
     // Start is called before the first frame update
     void Start()
     {
         Txt = this.GetComponent<TMP_Text>();
-        // Formulate entire string to be outputted
-            // TODO
-        // Store text temporarily in tmp
-        TxtTemp = Txt.text;
-        Txt.text = "";
+        switch (textType)
+        {
+            case TextType.highscore:
+                TxtTemp = "Highscore: " + PlayerPrefs.GetInt("high_score");
+                break;
+            case TextType.score:
+                TxtTemp = "Score: " + PlayerPrefs.GetInt("recent_score");
+                break;
+            case TextType.title:
+                TxtTemp = "Game Over";
+                break;
+            default:
+                break;
+        }
+        Debug.Log(TxtTemp);
         StartCoroutine(TypeWriter(TxtTemp));
     }
 

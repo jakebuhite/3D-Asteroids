@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SceneManager : MonoBehaviour
 {
+    // UI
+    public RawImage[] PlayerLivesUI;
+    public TMP_Text ScoreTxt;
+
+    // Game
+    public int PlayerLives = 3;
     public int GameScore = 0;
     
     private int HighScore = 0;
@@ -49,6 +57,7 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ScoreTxt.text = GameScore.ToString();
         if (canSpawn == true)
         {
             StartCoroutine(waitEmpty());
@@ -73,15 +82,30 @@ public class SceneManager : MonoBehaviour
 
     public void RemoveLife()
     {
-        // Check to see how many lives player has
-            // If player lost final life, check if high score and load game over scene
-            // Otherwise, remove life and send the player back to the origin/spawn.
+        PlayerLives--;
+        if (PlayerLives > 0)
+        {
+            PlayerLivesUI[PlayerLives - 1].enabled = false;
+            Player.transform.position = new(0, 0, 0);
+        } else
+        {
+            // TODO
+            // Play Explosion??
+            Time.timeScale = 0;
+            if (GameScore > HighScore)
+            {
+                PlayerPrefs.SetInt(HighScoreKey, GameScore);
+            }
+            PlayerPrefs.SetInt(RecentScoreKey, GameScore);
+            GameOver();
+        }
     }
 
     public void SplitAsteroid(Transform tran)
     {
-        if (tran.tag == "LargeAsteroid")
+        if (tran.CompareTag("LargeAsteroid"))
         {
+            UpdateScore(100);
             LargeExplosion(tran);
             numOfAsteroids--;
             MA1 = Instantiate(MediumAsteroid);
@@ -107,8 +131,9 @@ public class SceneManager : MonoBehaviour
             MA2.transform.position = mAsteroid2.AsteroidPosition;
         } 
 
-        if (tran.tag == "MediumAsteroid")
+        if (tran.CompareTag("MediumAsteroid"))
         {
+            UpdateScore(50);
             LargeExplosion(tran);
             SA1 = Instantiate(SmallAsteroid);
             SA2 = Instantiate(SmallAsteroid);
@@ -131,8 +156,9 @@ public class SceneManager : MonoBehaviour
             SA2.transform.position = sAsteroid2.AsteroidPosition;
         }
 
-        if (tran.tag == "SmallAsteroid")
+        if (tran.CompareTag("SmallAsteroid"))
         {
+            UpdateScore(25);
             SmallExplosion(tran);
         }
     }
@@ -163,14 +189,15 @@ public class SceneManager : MonoBehaviour
             distance = new Vector2(x - Player.transform.position.x, z - Player.transform.position.z);
         }
         while (distance.magnitude < 4);
-        {
-            float y = Random.Range(-25, 50);
-            y = y + 0.49f;
-            GameObject instance = Instantiate(UFO);
-            instance.transform.position = new Vector3(distance.x, y, distance.y);
-            EnemyMovement enemyMove = instance.GetComponent<EnemyMovement>();
-            enemyMove.dir = new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), Random.Range(-3, 3));
-        }
+        
+        float y = Random.Range(-25, 50);
+        y += 0.49f;
+        GameObject instance = Instantiate(UFO);
+        instance.transform.position = new Vector3(distance.x, y, distance.y);
+        EnemyMovement enemyMove = instance.GetComponent<EnemyMovement>();
+        EnemyShooting enemyShooting = instance.GetComponent<EnemyShooting>();
+        enemyShooting.Manager = this;
+        enemyMove.dir = new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), Random.Range(-3, 3));
     }
     IEnumerator SpawnAsteroids()
     {
@@ -189,7 +216,7 @@ public class SceneManager : MonoBehaviour
         while (distance.magnitude < 4);
         {
             float y = Random.Range(-25, 50);
-            y = y + 0.49f;
+            y += 0.49f;
             GameObject instance = Instantiate(LargeAsteroid);
             instance.transform.position = new Vector3(distance.x, y, distance.y);
             Asteroid_Movement LA = instance.GetComponent<Asteroid_Movement>();
@@ -211,5 +238,10 @@ public class SceneManager : MonoBehaviour
     IEnumerator waitStart()
     {
         yield return new WaitForSeconds(2);
+    }
+
+    void GameOver()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverScene");
     }
 }

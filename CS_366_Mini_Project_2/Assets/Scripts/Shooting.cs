@@ -51,7 +51,7 @@ public class Shooting : MonoBehaviour
         Vector3 EndPoint = ray.GetPoint(100.0f);
         if (Physics.Raycast(ray, out hit, 100f))
         {
-            if (hit.transform.gameObject.tag == "LargeAsteroid" || hit.transform.gameObject.tag == "MediumAsteroid" || hit.transform.gameObject.tag == "SmallAsteroid")
+            if (hit.transform.gameObject.CompareTag("LargeAsteroid") || hit.transform.gameObject.CompareTag("MediumAsteroid") || hit.transform.gameObject.CompareTag("SmallAsteroid"))
             {
                 Manager.SplitAsteroid(hit.transform);
                 EndPoint = hit.point;

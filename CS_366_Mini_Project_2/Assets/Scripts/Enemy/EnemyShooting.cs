@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public float CooldownTime;
+    public SceneManager Manager;
 
     // Create visual effect for ray
     public float LineWidth = 0.1f;
@@ -53,10 +54,9 @@ public class EnemyShooting : MonoBehaviour
                 EndPoint = hit.point;
                 Destroy(hit.transform.gameObject);
             }
-            else if (hit.transform.gameObject.tag == "Player")
+            else if (hit.transform.gameObject.CompareTag("Player"))
             {
-                // TODO
-                    // Remove Life
+                Manager.RemoveLife();
                 EndPoint = hit.point;
                 Debug.Log("Player: " + hit.point);
             }

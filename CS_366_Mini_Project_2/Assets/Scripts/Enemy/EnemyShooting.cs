@@ -62,7 +62,6 @@ public class EnemyShooting : MonoBehaviour
             }
         }
         LinePositions[0] = this.transform.position;
-        Debug.Log("EndPoint: " + EndPoint);
         LinePositions[1] = EndPoint;
         lineRenderer.SetPositions(LinePositions);
     }

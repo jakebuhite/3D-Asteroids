@@ -339,6 +339,7 @@ MonoBehaviour:
   InitialDelay: 2.5
   DelayPerChar: 0.1
   textType: 2
+  Txt: {fileID: 1210141195}
 --- !u!114 &1210141195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,6 +769,7 @@ MonoBehaviour:
   InitialDelay: 1.2
   DelayPerChar: 0.1
   textType: 1
+  Txt: {fileID: 1474136640}
 --- !u!1 &1631732061
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,6 +921,7 @@ MonoBehaviour:
   InitialDelay: 0.1
   DelayPerChar: 0.1
   textType: 0
+  Txt: {fileID: 1631732063}
 --- !u!1 &1673011353
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class SplashSM : MonoBehaviour
     {
         ship = Instantiate(shipPrefab);
         renderer = ship.GetComponent<Renderer>();
+        Cursor.visible = true;
     }
 
     // Update is called once per frame

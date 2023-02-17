@@ -33,7 +33,6 @@ public class TypewriterText : MonoBehaviour
             default:
                 break;
         }
-        Debug.Log(TxtTemp);
         StartCoroutine(TypeWriter(TxtTemp));
     }
 
@@ -46,7 +45,6 @@ public class TypewriterText : MonoBehaviour
     IEnumerator TypeWriter(string Temp)
     {
         yield return new WaitForSeconds(InitialDelay);
-
         foreach (char c in Temp)
         {
             Txt.text += c;

@@ -11048,7 +11048,7 @@ MonoBehaviour:
   - {fileID: 1851421060}
   - {fileID: 165988926}
   ScoreTxt: {fileID: 1626609304}
-  PlayerLives: 3
+  PlayerLives: 0
   GameScore: 0
   UFO: {fileID: 7130517345598088701, guid: 45ecb8a86839f3a429afcdb7352b2cba, type: 3}
   LargeAsteroid: {fileID: 2647338763139373305, guid: 04c5c1293acfe7d44bc1c9e696f46ef2, type: 3}

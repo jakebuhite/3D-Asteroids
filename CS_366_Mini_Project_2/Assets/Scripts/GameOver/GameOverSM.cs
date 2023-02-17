@@ -14,6 +14,7 @@ public class GameOverSM : MonoBehaviour
     {
         PlayAgainBtn.gameObject.SetActive(false);
         StartCoroutine(DelayButton());
+        Cursor.visible = true;
     }
 
     // Update is called once per frame

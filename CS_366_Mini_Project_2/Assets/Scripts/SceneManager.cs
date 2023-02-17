@@ -85,13 +85,12 @@ public class SceneManager : MonoBehaviour
         PlayerLives--;
         if (PlayerLives > 0)
         {
-            PlayerLivesUI[PlayerLives - 1].enabled = false;
+            PlayerLivesUI[PlayerLives].enabled = false;
             Player.transform.position = new(0, 0, 0);
         } else
         {
             // TODO
             // Play Explosion??
-            Time.timeScale = 0;
             if (GameScore > HighScore)
             {
                 PlayerPrefs.SetInt(HighScoreKey, GameScore);

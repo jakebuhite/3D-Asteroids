@@ -68,6 +68,8 @@ public class Shooting : MonoBehaviour
             }
             if (hit.transform.gameObject.CompareTag("Enemy"))
             {
+                Manager.UFOExplosion(hit.transform);
+                Explosion.Play();
                 Destroy(hit.transform.gameObject);
                 Manager.UpdateScore(1000);
             }

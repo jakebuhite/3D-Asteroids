@@ -166,6 +166,19 @@ public class SceneManager : MonoBehaviour
         }
     }
 
+    public void UFOExplosion(Transform tran)
+    {
+        ParticleSystem Boom;
+        ParticleSystem Boom2;
+        Boom = Instantiate(ExplosionFX);
+        Boom2 = Instantiate(ExplosionFX);
+        Boom.transform.position = tran.position;
+        Boom2.transform.position = tran.position;
+        var euler = tran.eulerAngles;
+        euler.x = euler.x + 180f;
+        Boom2.transform.eulerAngles = euler;
+    }
+
     private void LargeExplosion(Transform tran)
     {
         ParticleSystem Boom;

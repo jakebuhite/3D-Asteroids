@@ -8,6 +8,7 @@ public class Asteroid_Movement : MonoBehaviour
     public float speed = 1;
     public SceneManager Manager;
 
+
     public Vector3 AsteroidPosition;
 
     // Start is called before the first frame update

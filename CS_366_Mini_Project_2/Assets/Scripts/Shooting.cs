@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour
     public GameObject ShootPoint;
 
     public AudioSource Laser;
+    public AudioSource Explosion;
 
     // Create visual effect for ray
     public float LineWidth = 0.1f;
@@ -35,7 +36,11 @@ public class Shooting : MonoBehaviour
         if (Input.GetMouseButton(0) && !InCooldown)
         {
             Shoot();
+            if(!Laser.isPlaying)
+            {
             Laser.Play();
+            }
+
             lineRenderer.enabled = true;
             StartCoroutine(StartCooldown());
         }
@@ -58,6 +63,7 @@ public class Shooting : MonoBehaviour
             {
                 Manager.SplitAsteroid(hit.transform);
                 EndPoint = hit.point;
+                Explosion.Play();
                 Destroy(hit.transform.gameObject);
             }
             if (hit.transform.gameObject.CompareTag("Enemy"))

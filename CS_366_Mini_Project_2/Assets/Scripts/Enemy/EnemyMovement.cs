@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public Vector3 dir;
     public float speed;
+    public SceneManager Manager;
     public enum AIType { attack, none };
     public AIType aiType = AIType.none;
 
@@ -68,12 +69,10 @@ public class EnemyMovement : MonoBehaviour
     {
         float dist = Vector3.Distance(this.transform.position, player.transform.position);
 
-        if (dist <= 50.0f)
+        if (dist <= 50.0f && !Manager.isPlayerInvicible)
         {
             aiType = AIType.attack;
-        }
-
-        if (aiType == AIType.attack && dist > 50.0f)
+        } else
         {
             aiType = AIType.none;
         }
@@ -101,13 +100,11 @@ public class EnemyMovement : MonoBehaviour
         if (collider.gameObject.tag == "LargeAsteroid" || collider.gameObject.tag == "MediumAsteroid" || collider.gameObject.tag == "SmallAsteroid")
         {
             Destroy(collider.gameObject);
-            //Vector3 direction = collider.transform.position - transform.position;
         }
 
         if (collider.gameObject.tag == "Player")
         {
-            // TODO
-                // Take player life
+            Manager.RemoveLife();
         }
     }
 }

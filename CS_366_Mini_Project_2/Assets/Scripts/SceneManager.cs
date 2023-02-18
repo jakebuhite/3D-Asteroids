@@ -34,12 +34,15 @@ public class SceneManager : MonoBehaviour
     private GameObject SA1;
     private GameObject SA2;
 
+    public bool isPlayerInvicible;
+
     public int numOfAsteroids = 2;
     public bool canSpawn = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        isPlayerInvicible = false;
         if (PlayerPrefs.HasKey(HighScoreKey))
         {
             HighScore = PlayerPrefs.GetInt(HighScoreKey);
@@ -87,6 +90,7 @@ public class SceneManager : MonoBehaviour
         {
             PlayerLivesUI[PlayerLives].enabled = false;
             Player.transform.position = new(0, 0, 0);
+            StartCoroutine(PlayerGracePeriod());
         } else
         {
             // TODO
@@ -196,6 +200,7 @@ public class SceneManager : MonoBehaviour
         EnemyMovement enemyMove = instance.GetComponent<EnemyMovement>();
         EnemyShooting enemyShooting = instance.GetComponent<EnemyShooting>();
         enemyShooting.Manager = this;
+        enemyMove.Manager = this;
         enemyMove.dir = new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), Random.Range(-3, 3));
     }
     IEnumerator SpawnAsteroids()
@@ -242,5 +247,12 @@ public class SceneManager : MonoBehaviour
     void GameOver()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverScene");
+    }
+
+    IEnumerator PlayerGracePeriod()
+    {
+        isPlayerInvicible = true;
+        yield return new WaitForSeconds(3);
+        isPlayerInvicible = false;
     }
 }

@@ -11048,7 +11048,7 @@ MonoBehaviour:
   - {fileID: 1851421060}
   - {fileID: 165988926}
   ScoreTxt: {fileID: 1626609304}
-  PlayerLives: 0
+  PlayerLives: 3
   GameScore: 0
   UFO: {fileID: 7130517345598088701, guid: 45ecb8a86839f3a429afcdb7352b2cba, type: 3}
   LargeAsteroid: {fileID: 2647338763139373305, guid: 04c5c1293acfe7d44bc1c9e696f46ef2, type: 3}
@@ -11057,6 +11057,7 @@ MonoBehaviour:
   ExplosionFX: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   LittleExplosionFX: {fileID: 198000012942003240, guid: ecdd96beb7f93494880c052dfccf9dc1, type: 3}
   Player: {fileID: 1827002226}
+  isPlayerInvicible: 0
   numOfAsteroids: 2
   canSpawn: 1
 --- !u!1001 &1781568598

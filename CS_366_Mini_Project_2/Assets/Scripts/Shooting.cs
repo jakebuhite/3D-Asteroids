@@ -57,6 +57,11 @@ public class Shooting : MonoBehaviour
                 EndPoint = hit.point;
                 Destroy(hit.transform.gameObject);
             }
+            if (hit.transform.gameObject.CompareTag("Enemy"))
+            {
+                Destroy(hit.transform.gameObject);
+                Manager.UpdateScore(1000);
+            }
         }
         LinePositions[0] = ShootPoint.transform.position;
         LinePositions[1] = EndPoint;

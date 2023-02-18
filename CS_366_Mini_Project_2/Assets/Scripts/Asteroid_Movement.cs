@@ -55,7 +55,13 @@ public class Asteroid_Movement : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            Manager.RemoveLife();
+            if (!Manager.isPlayerInvicible)
+            {
+                Manager.RemoveLife();
+            } else
+            {
+                dir *= -1;
+            }
         }
     }
 }

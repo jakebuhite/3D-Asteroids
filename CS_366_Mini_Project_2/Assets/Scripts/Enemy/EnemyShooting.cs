@@ -48,7 +48,6 @@ public class EnemyShooting : MonoBehaviour
         Vector3 EndPoint = ray.GetPoint(100.0f);
         if (Physics.Raycast(ray, out hit, 100f))
         {
-            Debug.Log("Hit: " + hit.transform.gameObject.tag);
             if (hit.transform.gameObject.tag == "LargeAsteroid" || hit.transform.gameObject.tag == "MediumAsteroid" || hit.transform.gameObject.tag == "SmallAsteroid")
             {
                 EndPoint = hit.point;
@@ -58,7 +57,6 @@ public class EnemyShooting : MonoBehaviour
             {
                 Manager.RemoveLife();
                 EndPoint = hit.point;
-                Debug.Log("Player: " + hit.point);
             }
         }
         LinePositions[0] = this.transform.position;

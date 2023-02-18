@@ -93,8 +93,8 @@ public class SceneManager : MonoBehaviour
             StartCoroutine(PlayerGracePeriod());
         } else
         {
-            // TODO
-            // Play Explosion??
+
+
             if (GameScore > HighScore)
             {
                 PlayerPrefs.SetInt(HighScoreKey, GameScore);

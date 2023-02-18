@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float speedOfCamera;
 
+    public AudioSource engine;
+
     private Vector2 look, screenCenter, mouseDistance;
 
     // Start is called before the first frame update
@@ -27,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.W) && !engine.isPlaying)
+            engine.Play();
         look.x = Input.mousePosition.x;
         look.y = Input.mousePosition.y;
 

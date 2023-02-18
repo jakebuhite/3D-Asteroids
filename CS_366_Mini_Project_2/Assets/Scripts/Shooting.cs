@@ -8,6 +8,8 @@ public class Shooting : MonoBehaviour
     public SceneManager Manager;
     public GameObject ShootPoint;
 
+    public AudioSource Laser;
+
     // Create visual effect for ray
     public float LineWidth = 0.1f;
     public float LineLength = 5f;
@@ -33,6 +35,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetMouseButton(0) && !InCooldown)
         {
             Shoot();
+            Laser.Play();
             lineRenderer.enabled = true;
             StartCoroutine(StartCooldown());
         }

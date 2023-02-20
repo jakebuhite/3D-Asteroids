@@ -108,7 +108,7 @@ public class SceneManager : MonoBehaviour
     {
         if (tran.CompareTag("LargeAsteroid"))
         {
-            UpdateScore(100);
+            UpdateScore(25);
             LargeExplosion(tran);
             numOfAsteroids--;
             MA1 = Instantiate(MediumAsteroid);
@@ -161,7 +161,7 @@ public class SceneManager : MonoBehaviour
 
         if (tran.CompareTag("SmallAsteroid"))
         {
-            UpdateScore(25);
+            UpdateScore(100);
             SmallExplosion(tran);
         }
     }

@@ -33,7 +33,7 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && !InCooldown)
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && !InCooldown)
         {
             Shoot();
             if(!Laser.isPlaying)
@@ -43,12 +43,6 @@ public class Shooting : MonoBehaviour
 
             lineRenderer.enabled = true;
             StartCoroutine(StartCooldown());
-        }
-        else
-        {
-            LinePositions[0] = Vector3.zero;
-            LinePositions[1] = Vector3.zero;
-            lineRenderer.enabled = false;
         }
     }
 
@@ -74,9 +68,7 @@ public class Shooting : MonoBehaviour
                 Manager.UpdateScore(1000);
             }
         }
-        LinePositions[0] = ShootPoint.transform.position;
-        LinePositions[1] = EndPoint;
-        lineRenderer.SetPositions(LinePositions);
+        StartCoroutine(ShowLaser(ShootPoint.transform.position, EndPoint));
     }
 
     IEnumerator StartCooldown()
@@ -84,5 +76,16 @@ public class Shooting : MonoBehaviour
         InCooldown = true;
         yield return new WaitForSeconds(CooldownTime);
         InCooldown = false;
+    }
+
+    IEnumerator ShowLaser(Vector3 Start, Vector3 End)
+    {
+        LinePositions[0] = Start;
+        LinePositions[1] = End;
+        lineRenderer.SetPositions(LinePositions);
+        yield return new WaitForSeconds(0.05f);
+        LinePositions[0] = Vector3.zero;
+        LinePositions[1] = Vector3.zero;
+        lineRenderer.enabled = false;
     }
 }

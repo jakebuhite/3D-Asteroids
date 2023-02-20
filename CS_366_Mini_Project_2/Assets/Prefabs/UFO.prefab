@@ -101,7 +101,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.07
+  m_Radius: 0.035
   m_Center: {x: -0.0000000055879354, y: -0.000000007450581, z: 0.0032236334}
 --- !u!54 &9007198535451303640
 Rigidbody:
@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dir: {x: 0, y: 0, z: 0}
   speed: 5
+  Manager: {fileID: 0}
   aiType: 1
 --- !u!114 &-5159415443472924282
 MonoBehaviour:
@@ -246,5 +247,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CooldownTime: 2
+  Manager: {fileID: 0}
   LineWidth: 0.1
   LineLength: 5

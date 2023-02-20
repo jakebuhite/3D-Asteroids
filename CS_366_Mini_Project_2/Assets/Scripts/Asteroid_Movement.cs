@@ -8,6 +8,8 @@ public class Asteroid_Movement : MonoBehaviour
     public float speed = 1;
     public SceneManager Manager;
 
+    public AudioSource ShipHit;
+
 
     public Vector3 AsteroidPosition;
 
@@ -59,6 +61,7 @@ public class Asteroid_Movement : MonoBehaviour
             if (!Manager.isPlayerInvicible)
             {
                 Manager.RemoveLife();
+                ShipHit.Play();
             } else
             {
                 dir *= -1;

@@ -20,7 +20,7 @@ public class Boundary : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
-            collider.transform.position = new Vector3(0, 0, 0);
+            //collider.transform.position = new Vector3(0, 0, 0);
         }
     }
 }

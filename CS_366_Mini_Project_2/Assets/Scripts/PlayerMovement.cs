@@ -21,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
     private bool RocketsOn;
     private Vector2 look, screenCenter, mouseDistance;
 
+    // Check to see if player has hit boundary
+    private bool hitBoundary = false;
+    public Vector3 dir;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,11 +57,15 @@ public class PlayerMovement : MonoBehaviour
 
         aForward = Mathf.Lerp(aForward, Input.GetAxis("Vertical") * forwardSpeed, fAcceleration * Time.deltaTime);
 
-        this.transform.position += transform.forward * aForward * Time.deltaTime;
+        if (!hitBoundary)
+        {
+            dir = transform.forward;
+        }
+        this.transform.position += dir * aForward * Time.deltaTime;
        
     }
 
-    void ToggleRockets()
+    private void ToggleRockets()
     {
         if (RocketsOn)
         {
@@ -75,5 +83,31 @@ public class PlayerMovement : MonoBehaviour
             }
             RocketsOn = true;
         }
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        StartCoroutine(Bounce());
+        switch (collider.gameObject.tag)
+        {
+            case "BoundaryX":
+                dir.x *= Random.Range(-2.0f, -1.0f);
+                break;
+            case "BoundaryY":
+                dir.y *= Random.Range(-2.0f, -1.0f);
+                break;
+            case "BoundaryZ":
+                dir.z *= Random.Range(-2.0f, -1.0f);
+                break;
+            default:
+                break;
+        }
+    }
+
+    IEnumerator Bounce()
+    {
+        hitBoundary = true;
+        yield return new WaitForSeconds(0.5f);
+        hitBoundary = false;
     }
 }

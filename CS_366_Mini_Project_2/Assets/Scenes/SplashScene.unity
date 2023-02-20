@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 192349919}
   - component: {fileID: 192349921}
   - component: {fileID: 192349920}
+  - component: {fileID: 192349922}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -329,7 +330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ASTeroids
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e19f469cdb4a6a644ba50d4eecb0009b, type: 2}
   m_sharedMaterial: {fileID: 5181738837333364858, guid: e19f469cdb4a6a644ba50d4eecb0009b, type: 2}
@@ -406,6 +407,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192349918}
   m_CullTransparentMesh: 1
+--- !u!114 &192349922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192349918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7556ec22f53e22548bf06afd63440af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialDelay: 0.1
+  DelayPerChar: 0.15
 --- !u!1 &213685019
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,6 +800,9 @@ MonoBehaviour:
   speed: 13
   direction: {x: 4, y: 1, z: 0}
   shipPrefab: {fileID: 2588799174360299023, guid: c9a0c87126f648642bf316a49eef32b6, type: 3}
+  ufoPrefab: {fileID: 7338477040583342912, guid: a03abe36a7807884198d32274dfd6019, type: 3}
+  PlayBtn: {fileID: 161929210}
+  DelayTime: 2
 --- !u!82 &1193824356
 AudioSource:
   m_ObjectHideFlags: 0

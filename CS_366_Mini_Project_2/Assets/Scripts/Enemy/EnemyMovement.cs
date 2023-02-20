@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
     // UFO Rotation
     private Matrix4x4 rotateAxis;
     private float spinner;
-    public float spinSpeed = 50;
+    public float spinSpeed = 200;
 
     private MeshFilter mesh;
     private Vector3[] origVerts;
@@ -45,7 +45,7 @@ public class EnemyMovement : MonoBehaviour
 
         // UFO rotation
         spinner += spinSpeed * Time.deltaTime;
-        rotateAxis = Matrix4x4.Rotate(Quaternion.Euler(1, spinner, 1));
+        rotateAxis = Matrix4x4.Rotate(Quaternion.Euler(1, 1, spinner));
         for (int i = 0; i < origVerts.Length; i++)
         {
             newVerts[i] = rotateAxis.MultiplyPoint3x4(origVerts[i]);

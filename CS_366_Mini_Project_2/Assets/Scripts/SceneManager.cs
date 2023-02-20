@@ -127,6 +127,7 @@ public class SceneManager : MonoBehaviour
             mAsteroid2.Manager = this;
 
             mAsteroid.AsteroidPosition = tran.transform.position;
+            mAsteroid2.AsteroidPosition = tran.transform.position;
 
 
             MA1.transform.position = mAsteroid.AsteroidPosition;
@@ -153,6 +154,7 @@ public class SceneManager : MonoBehaviour
             sAsteroid2.Manager = this;
 
             sAsteroid.AsteroidPosition = tran.transform.position;
+            sAsteroid2.AsteroidPosition = tran.transform.position;
 
             SA1.transform.position = sAsteroid.AsteroidPosition;
             var euler1 = transform.eulerAngles;

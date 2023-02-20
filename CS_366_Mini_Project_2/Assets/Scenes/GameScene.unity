@@ -199,6 +199,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 181476, guid: 32303dc3554fcfc419798a1f0235187f, type: 3}
+      propertyPath: m_TagString
+      value: PlayerBody
+      objectReference: {fileID: 0}
     - target: {fileID: 191634, guid: 32303dc3554fcfc419798a1f0235187f, type: 3}
       propertyPath: m_Name
       value: UAV Trident

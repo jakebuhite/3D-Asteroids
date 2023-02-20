@@ -564,6 +564,7 @@ MonoBehaviour:
   RollSpeed: 90
   speedOfCamera: 40
   engine: {fileID: 1827002233}
+  dir: {x: 0, y: 0, z: 0}
 --- !u!114 &1827002229
 MonoBehaviour:
   m_ObjectHideFlags: 0

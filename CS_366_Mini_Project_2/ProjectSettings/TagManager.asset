@@ -14,6 +14,7 @@ TagManager:
   - BoundaryY
   - BoundaryZ
   - PlayerRocket
+  - PlayerBody
   layers:
   - Default
   - TransparentFX

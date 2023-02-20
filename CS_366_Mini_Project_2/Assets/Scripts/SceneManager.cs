@@ -39,10 +39,14 @@ public class SceneManager : MonoBehaviour
     public int numOfAsteroids = 2;
     public bool canSpawn = false;
 
+    // Invicibility Blinking
+    private GameObject PlayerBody;
+
     // Start is called before the first frame update
     void Start()
     {
         isPlayerInvicible = false;
+        PlayerBody = GameObject.FindGameObjectWithTag("PlayerBody");
         if (PlayerPrefs.HasKey(HighScoreKey))
         {
             HighScore = PlayerPrefs.GetInt(HighScoreKey);
@@ -273,7 +277,22 @@ public class SceneManager : MonoBehaviour
     IEnumerator PlayerGracePeriod()
     {
         isPlayerInvicible = true;
+        StartCoroutine(ToggleMeshRenderer());
         yield return new WaitForSeconds(3);
         isPlayerInvicible = false;
+        // To ensure the mesh renderer ends true
+        PlayerBody.GetComponent<MeshRenderer>().enabled = true;
+    }
+
+    IEnumerator ToggleMeshRenderer()
+    {
+        PlayerBody.GetComponent<MeshRenderer>().enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        PlayerBody.GetComponent<MeshRenderer>().enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        if (isPlayerInvicible)
+        {
+            StartCoroutine(ToggleMeshRenderer());
+        }
     }
 }

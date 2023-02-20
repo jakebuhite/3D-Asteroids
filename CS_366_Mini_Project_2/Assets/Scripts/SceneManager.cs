@@ -143,6 +143,7 @@ public class SceneManager : MonoBehaviour
             euler2.z = Random.Range(0, 360);
             MA2.transform.eulerAngles = euler2;
             MA2.transform.position = mAsteroid2.AsteroidPosition;
+            StartCoroutine(WaitSpawn());
         } 
 
         if (tran.CompareTag("MediumAsteroid"))
@@ -189,6 +190,8 @@ public class SceneManager : MonoBehaviour
         var euler = tran.eulerAngles;
         euler.x = euler.x + 180f;
         Boom2.transform.eulerAngles = euler;
+        StartCoroutine(waitEmpty());
+        StartCoroutine(waitEmpty());
     }
 
     private void LargeExplosion(Transform tran)
@@ -251,7 +254,7 @@ public class SceneManager : MonoBehaviour
             Asteroid_Movement LA = instance.GetComponent<Asteroid_Movement>();
             LA.Manager = this;
         }
-        StartCoroutine(WaitSpawn());
+        
     }
     IEnumerator WaitSpawn()
     {
@@ -262,6 +265,7 @@ public class SceneManager : MonoBehaviour
     IEnumerator waitEmpty()
     {
         yield return new WaitForSeconds(Random.Range(1, 3));
+        SpawnUFO();
     }
 
     IEnumerator waitStart()

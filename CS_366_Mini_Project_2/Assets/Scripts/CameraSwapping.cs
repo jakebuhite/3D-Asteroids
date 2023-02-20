@@ -31,13 +31,13 @@ public class CameraSwapping : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (CamMode == 1)
         {
-            thirdPerson.SetActive(true);
-            firstPerson.SetActive(false);
+            thirdPerson.SetActive(false);
+            firstPerson.SetActive(true);
         }
         if (CamMode == 0)
         {
-            thirdPerson.SetActive(false);
-            firstPerson.SetActive(true);
+            thirdPerson.SetActive(true);
+            firstPerson.SetActive(false);
         }
     }
 }

@@ -13,6 +13,8 @@ public class EnemyShooting : MonoBehaviour
     private LineRenderer lineRenderer;
     private Vector3[] LinePositions = { Vector3.zero, Vector3.zero };
 
+    public AudioSource PlayerHit;
+
     private bool InCooldown;
     private EnemyMovement enemyMovement;
 
@@ -55,6 +57,7 @@ public class EnemyShooting : MonoBehaviour
             }
             else if (hit.transform.gameObject.CompareTag("Player"))
             {
+                PlayerHit.Play();
                 Manager.RemoveLife();
                 EndPoint = hit.point;
             }

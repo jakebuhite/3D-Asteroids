@@ -4,19 +4,37 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    // General
     public Vector3 dir;
     public float speed;
     public SceneManager Manager;
+    
+    // AI Management 
     public enum AIType { attack, none };
     public AIType aiType = AIType.none;
 
+    // UFO Rotation
+    private Matrix4x4 rotateAxis;
+    private float spinner;
+    public float spinSpeed = 50;
+
+    private MeshFilter mesh;
+    private Vector3[] origVerts;
+    private Vector3[] newVerts;
+
+    // Player
     private GameObject player;
-    private BoxCollider boxCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
+        // UFO rotation
+        mesh = this.GetComponent<MeshFilter>();
+        origVerts = mesh.mesh.vertices;
+        newVerts = new Vector3[origVerts.Length];
+        spinner = 0;
     }
 
     // Update is called once per frame
@@ -24,6 +42,15 @@ public class EnemyMovement : MonoBehaviour
     {
         dir = ProcessAI();
         this.transform.position += speed * Time.deltaTime * dir;
+
+        // UFO rotation
+        spinner += spinSpeed * Time.deltaTime;
+        rotateAxis = Matrix4x4.Rotate(Quaternion.Euler(1, spinner, 1));
+        for (int i = 0; i < origVerts.Length; i++)
+        {
+            newVerts[i] = rotateAxis.MultiplyPoint3x4(origVerts[i]);
+        }
+        mesh.mesh.vertices = newVerts;
     }
 
     Vector3 ProcessAI()

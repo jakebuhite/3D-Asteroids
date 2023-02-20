@@ -234,6 +234,7 @@ MonoBehaviour:
   speed: 5
   Manager: {fileID: 0}
   aiType: 1
+  spinSpeed: 5
 --- !u!114 &-5159415443472924282
 MonoBehaviour:
   m_ObjectHideFlags: 0

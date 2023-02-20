@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource engine;
 
+    private GameObject[] Rockets;
+    private bool RocketsOn;
     private Vector2 look, screenCenter, mouseDistance;
 
     // Start is called before the first frame update
@@ -24,6 +26,10 @@ public class PlayerMovement : MonoBehaviour
     {
         screenCenter.x = Screen.width * .5f;
         screenCenter.y = Screen.height * .5f;
+
+        Rockets = GameObject.FindGameObjectsWithTag("PlayerRocket");
+        RocketsOn = true;
+        ToggleRockets();
     }
 
     // Update is called once per frame
@@ -31,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W) && !engine.isPlaying)
             engine.Play();
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyUp(KeyCode.W))
+            ToggleRockets();
         look.x = Input.mousePosition.x;
         look.y = Input.mousePosition.y;
 
@@ -49,5 +57,23 @@ public class PlayerMovement : MonoBehaviour
        
     }
 
-
+    void ToggleRockets()
+    {
+        if (RocketsOn)
+        {
+            foreach (GameObject g in Rockets)
+            {
+                g.GetComponent<ParticleSystem>().Stop();
+                g.GetComponent<ParticleSystem>().Clear();
+            }
+            RocketsOn = false;
+        } else
+        {
+            foreach (GameObject g in Rockets)
+            {
+                g.GetComponent<ParticleSystem>().Play();
+            }
+            RocketsOn = true;
+        }
+    }
 }

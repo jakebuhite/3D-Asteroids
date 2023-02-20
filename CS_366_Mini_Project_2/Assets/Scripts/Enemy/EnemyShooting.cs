@@ -62,9 +62,7 @@ public class EnemyShooting : MonoBehaviour
                 EndPoint = hit.point;
             }
         }
-        LinePositions[0] = this.transform.position;
-        LinePositions[1] = EndPoint;
-        lineRenderer.SetPositions(LinePositions);
+        StartCoroutine(ShowLaser(this.transform.position, EndPoint));
     }
 
     IEnumerator StartCooldown()
@@ -72,5 +70,16 @@ public class EnemyShooting : MonoBehaviour
         InCooldown = true;
         yield return new WaitForSeconds(CooldownTime);
         InCooldown = false;
+    }
+
+    IEnumerator ShowLaser(Vector3 Start, Vector3 End)
+    {
+        LinePositions[0] = Start;
+        LinePositions[1] = End;
+        lineRenderer.SetPositions(LinePositions);
+        yield return new WaitForSeconds(0.1f);
+        LinePositions[0] = Vector3.zero;
+        LinePositions[1] = Vector3.zero;
+        lineRenderer.enabled = false;
     }
 }

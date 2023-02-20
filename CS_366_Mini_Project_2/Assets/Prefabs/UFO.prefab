@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb45b1deec4e8c4fa938db2052b27dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CooldownTime: 2
+  CooldownTime: 1
   Manager: {fileID: 0}
   LineWidth: 0.1
   LineLength: 5

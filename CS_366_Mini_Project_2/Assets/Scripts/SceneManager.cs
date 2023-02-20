@@ -82,6 +82,15 @@ public class SceneManager : MonoBehaviour
             StartCoroutine(SpawnAsteroids());
             StartCoroutine(SpawnAsteroids());
             StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
 
             canSpawn = false;
         }

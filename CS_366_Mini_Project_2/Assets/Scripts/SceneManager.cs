@@ -62,8 +62,7 @@ public class SceneManager : MonoBehaviour
     {
         ScoreTxt.text = GameScore.ToString();
         if (canSpawn == true)
-        {
-            StartCoroutine(waitEmpty());
+        {          
             StartCoroutine(SpawnAsteroids());
             StartCoroutine(SpawnAsteroids());
             StartCoroutine(SpawnAsteroids());
@@ -73,6 +72,13 @@ public class SceneManager : MonoBehaviour
             StartCoroutine(SpawnAsteroids());
             StartCoroutine(SpawnAsteroids());
             StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroids());
+
             canSpawn = false;
         }
         Cursor.visible = false;
@@ -199,14 +205,14 @@ public class SceneManager : MonoBehaviour
 
         do
         {
-            int x = Random.Range(-100, 100);
-            int z = Random.Range(-100, 100);
+            int x = Random.Range(-90, 90);
+            int z = Random.Range(-90, 90);
 
             distance = new Vector2(x - Player.transform.position.x, z - Player.transform.position.z);
         }
-        while (distance.magnitude < 4);
+        while (distance.magnitude < 25);
         
-        float y = Random.Range(-25, 50);
+        float y = Random.Range(-85, 85);
         y += 0.49f;
         GameObject instance = Instantiate(UFO);
         instance.transform.position = new Vector3(distance.x, y, distance.y);
@@ -225,14 +231,14 @@ public class SceneManager : MonoBehaviour
 
         do
         {
-            int x = Random.Range(-75, 75);
-            int z = Random.Range(-75, 75);
+            int x = Random.Range(-90, 90);
+            int z = Random.Range(-90, 90);
 
             distance = new Vector2(x - Player.transform.position.x, z - Player.transform.position.z);
         }
-        while (distance.magnitude < 4);
+        while (distance.magnitude < 20);
         {
-            float y = Random.Range(-25, 50);
+            float y = Random.Range(-85, 85);
             y += 0.49f;
             GameObject instance = Instantiate(LargeAsteroid);
             instance.transform.position = new Vector3(distance.x, y, distance.y);
@@ -243,7 +249,7 @@ public class SceneManager : MonoBehaviour
     }
     IEnumerator WaitSpawn()
     {
-        yield return new WaitForSeconds(Random.Range(1, 5));
+        yield return new WaitForSeconds(Random.Range(1, 10));
         StartCoroutine(SpawnAsteroids());
     }
 
